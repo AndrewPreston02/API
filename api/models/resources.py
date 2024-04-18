@@ -5,7 +5,7 @@ from ..dependencies.database import Base
 
 
 class Resource(Base):
-    tablename = "resources"
+    __tablename__ = "resources"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     unit = Column(String(100), unique=True, nullable=False)

@@ -3,7 +3,7 @@ from ..dependencies.database import Base
 from datetime import datetime
 
 class Promotion(Base):
-    tablename = "promotions"
+    __tablename__ = "promotions"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     promotion_code = Column(String(50), unique=True, index=True)

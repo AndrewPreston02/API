@@ -5,10 +5,10 @@ from ..dependencies.database import Base
 
 
 class Order(Base):
-    tablename = "orders"
+    __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    customer_name = Column(String(100), ForeignKey("customers.name"))
+    customer_id = Column(Integer, ForeignKey("customers.id"))
     order_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
     tracking_number = Column(Integer, index=True, nullable=False)
     order_status = Column(String(100))
