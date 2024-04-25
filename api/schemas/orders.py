@@ -9,6 +9,7 @@ class OrderBase(BaseModel):
     order_status: str
     total_price: float
     tracking_number: int
+    promotion_id: int
 
 
 class OrderCreate(OrderBase):
@@ -18,6 +19,7 @@ class OrderCreate(OrderBase):
 class OrderUpdate(BaseModel):
     description: Optional[str] = None
     order_status: str
+    promotion_id: int
 
 
 class Order(OrderBase):

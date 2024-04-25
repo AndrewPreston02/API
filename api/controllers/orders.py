@@ -10,7 +10,8 @@ def create(db: Session, request):
         order_status=request.order_status,
         total_price=request.total_price,
         description=request.description,
-        tracking_number=request.tracking_number
+        tracking_number=request.tracking_number,
+        promotion_id=request.promotion_id
     )
 
     try:

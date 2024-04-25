@@ -16,7 +16,10 @@ class Order(Base):
     order_status = Column(String(100))
     total_price = Column(DECIMAL(4, 2), nullable=False, server_default='0.0')
     description = Column(String(300))
+    promotion_id = Column(Integer, ForeignKey("promotions.id"))
 
     customer = relationship("Customer", back_populates="orders")
     ratings = relationship("Rating", back_populates="order")
     payments = relationship("Payment", back_populates="order")
+    promotion = relationship("Promotion", back_populates="orders")
+
