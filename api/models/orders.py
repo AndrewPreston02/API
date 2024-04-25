@@ -1,3 +1,5 @@
+from random import random
+
 from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -14,3 +16,7 @@ class Order(Base):
     order_status = Column(String(100))
     total_price = Column(DECIMAL(4, 2), nullable=False, server_default='0.0')
     description = Column(String(300))
+
+    customer = relationship("Customer", back_populates="orders")
+    ratings = relationship("Rating", back_populates="order")
+    payments = relationship("Payment", back_populates="order")

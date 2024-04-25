@@ -3,8 +3,8 @@ from typing import Optional, List
 from pydantic import BaseModel
 
 
-
 class PaymentBase(BaseModel):
+    order_id: int
     card_information: str
     transaction_status: str
     payment_type: str
@@ -22,5 +22,6 @@ class PaymentUpdate(BaseModel):
 
 class Payment(PaymentBase):
     id: int
+
     class Config:
         orm_mode = True

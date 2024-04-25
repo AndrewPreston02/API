@@ -1,11 +1,11 @@
-from datetime import datetime
+from datetime import date
 from typing import Optional
 from pydantic import BaseModel
 
 
 class PromotionBase(BaseModel):
-    promotion_code: str
-    expiration_date: Optional[datetime] = None
+    discount: float
+    expiration_date: Optional[date] = None
 
 
 class PromotionCreate(PromotionBase):
@@ -13,8 +13,8 @@ class PromotionCreate(PromotionBase):
 
 
 class PromotionUpdate(BaseModel):
-    promotion_code: Optional[str] = None
-    expiration_date: Optional[datetime] = None
+    discount: Optional[float] = None
+    expiration_date: Optional[date] = None
 
 
 class Promotion(PromotionBase):

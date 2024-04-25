@@ -3,11 +3,12 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-
 class OrderBase(BaseModel):
-    customer_name: str
+    customer_id: int
     description: Optional[str] = None
     order_status: str
+    total_price: float
+    tracking_number: int
 
 
 class OrderCreate(OrderBase):
@@ -15,7 +16,6 @@ class OrderCreate(OrderBase):
 
 
 class OrderUpdate(BaseModel):
-    customer_name: Optional[str] = None
     description: Optional[str] = None
     order_status: str
 

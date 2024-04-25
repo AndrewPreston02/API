@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 
 from ..dependencies.database import Base
 
+
 class Customer(Base):
     __tablename__ = "customers"
 
@@ -13,3 +14,4 @@ class Customer(Base):
     address = Column(String(300))
 
     orders = relationship("Order", back_populates="customer")
+    ratings = relationship("Rating", back_populates="customer")

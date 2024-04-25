@@ -4,6 +4,8 @@ from pydantic import BaseModel
 
 
 class RatingBase(BaseModel):
+    customer_id: int
+    order_id: int
     rating: int
     comment: Optional[str] = None
 
@@ -17,10 +19,8 @@ class RatingUpdate(BaseModel):
     comment: Optional[str] = None
 
 
-class Order(RatingBase):
+class Rating(RatingBase):
     id: int
-    customer_id: int
-    order_id: int
     timestamp: Optional[datetime] = None
 
     class ConfigDict:
